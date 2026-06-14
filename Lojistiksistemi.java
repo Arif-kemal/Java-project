@@ -33,8 +33,8 @@ public class Lojistiksistemi {
             // Sıradaki musteri ve arac seçiyoruz
             Musteri hedefMusteri=this.musteriListesi.get(musteriIndeks%this.musteriListesi.size());
             Arac secilenArac=this.aracListesi.get(aracIndeks%this.aracListesi.size());
-            System.out.println("\n-> İşlem gören kargo:"+ siradakiPaket.icerikGetir() + "(" + siradakiPaket.agirlikGetir() + "kilogram)");
-            System.out.println("-> taşıyacak oturgaçlıgötürgeç:"+ secilenArac.plakaGetir() + "| Hedef:"+ hedefMusteri.adGetir());
+            System.out.println("\n-> İşlem gören kargo:"+ siradakiPaket.icerikGetir() + "(" + siradakiPaket.agirlikGetir() + " kilogram)");
+            System.out.println("-> taşıyacak oturgaçlıgötürgeç: "+ secilenArac.plakaGetir() + "| Hedef:"+ hedefMusteri.adGetir());
 
             // Mesafe ve Yakıt Kontrolü
             double gidilecekMesafe = this.kargoMerkezi.mesafeHesapla(hedefMusteri.konumGetir());
@@ -43,6 +43,9 @@ public class Lojistiksistemi {
             if (secilenArac.yakitGetir()<gidilecekMesafe) {
                 System.out.println("benzin yetersiz");
                 secilenArac.yakitIkmal();
+                if (secilenArac.yakitGetir() < gidilecekMesafe) {
+                    throw new RuntimeException("gidelecek yol(" + gidilecekMesafe + "km)aracın deposu bu yola yetmez");
+                }//hata veriyordu try cath de falan iç içe sistemlerde çalışmıyor
             }
         //poliformizim+hata kontrolü
             try {

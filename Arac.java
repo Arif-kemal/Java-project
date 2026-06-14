@@ -12,6 +12,7 @@ public abstract class Arac {//arac turunu soyutluyoruz
         this.kapasite = kapasite;
         this.yakit = yakit;
     }
+    public void hizAyarla(double yeniHiz) {this.hiz = yeniHiz;}
 
     public String plakaGetir(){return this.plaka;}
 
