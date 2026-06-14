@@ -1,7 +1,7 @@
 # 🏙️ Akıllı Şehir Lojistik Simülasyon Motoru
 
-<img src="./images/ekran1.png" alt="Lojistik Simülasyonu Konsol Çıktısı" width="450">
-<img src="./images/ekran2.png" alt="Lojistik Simülasyonu Rapor Ekranı" width="450">
+<img src="./images/foto1.png" alt="Lojistik Simülasyonu Konsol Çıktısı" width="450">
+<img src="./images/foto2.png" alt="Lojistik Simülasyonu Rapor Ekranı" width="450">
 
 ## 📌 Projenin Genel Özeti
 
