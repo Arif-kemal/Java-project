@@ -5,8 +5,10 @@ public class Lojistiksistemi {
     private ArrayList<Arac> aracListesi;
     private ArrayList<Paket> paketKuyrugu; //fıfo iiçin
     private Konum kargoMerkezi;
+    private ILogger logger;
 
-    public Lojistiksistemi(Konum kargoMerkezi) {//construct
+    public Lojistiksistemi(Konum kargoMerkezi,ILogger logger) {//construct
+        this.logger=logger;
         this.musteriListesi = new ArrayList<>();
         this.aracListesi = new ArrayList<>();
         this.paketKuyrugu = new ArrayList<>();
@@ -22,7 +24,8 @@ public class Lojistiksistemi {
             System.out.println("Dağıtım için müşteri veya araç bulunmuyor!");
             return;
         }
-        System.out.println("       Sehir Lojistik simülasyonu ");
+       // System.out.println("       Sehir Lojistik simülasyonu ");
+        this.logger.logla("         Sehir lojistik simülasyonu ");
         int musteriIndeks=0;
         int aracIndeks=0;
 
@@ -51,7 +54,7 @@ public class Lojistiksistemi {
             try {
                 secilenArac.teslimatYap(hedefMusteri, siradakiPaket);
                 secilenArac.yakitAyarla(secilenArac.yakitGetir() - gidilecekMesafe);//hata yoksa benzin harcanmıştır
-                System.out.println("Kalan Yakıt"+ secilenArac.yakitGetir());
+                System.out.println("Kalan Yakıt "+ secilenArac.yakitGetir());
 
             } catch (Exception e){
                 System.out.println("teslimat iptal" + e.getMessage());//genislik ağırlık gibi hatalar sebpli hata kontrolü

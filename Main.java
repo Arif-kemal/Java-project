@@ -1,8 +1,9 @@
 public class Main {
     public static void main(String[] args) {
         Konum merkezKonum=new Konum(0, 0);//orijin
-        Lojistiksistemi sistem=new Lojistiksistemi(merkezKonum);
-
+        ILogger sistemLoglayici = new KonsolLogger();
+        Lojistiksistemi sistem = new Lojistiksistemi(merkezKonum, sistemLoglayici);
+        
         Musteri musteri1 = new Musteri(1881, "Arif şeremet", new Konum(3, 4), true);//dar sokak testi
         
         Musteri musteri2 = new Musteri(1453, "Kemal şeremet", new Konum(10, 20), false);
