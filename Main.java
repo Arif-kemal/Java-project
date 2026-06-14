@@ -27,7 +27,9 @@ public class Main {
         sistem.paketKabulEt(paket2);
         sistem.paketKabulEt(paket3);
         sistem.paketKabulEt(paket4);
-
+        
         sistem.dagitimiBaslat();//işlerin başlaması için
+        sistem.sistemRaporu();
+
     }
 }

@@ -14,7 +14,6 @@ public class Lojistiksistemi {
         this.paketKuyrugu = new ArrayList<>();
         this.kargoMerkezi = kargoMerkezi;
     }
-
     public void musteriEkle(Musteri musteri){this.musteriListesi.add(musteri);}
     public void aracEkle(Arac arac) {this.aracListesi.add(arac);}
     public void paketKabulEt(Paket paket) {this.paketKuyrugu.add(paket);}//fıfo ile sıralıcaz
@@ -63,7 +62,18 @@ public class Lojistiksistemi {
             musteriIndeks++;//basit bir indeks güncellemesi
             aracIndeks++;
         }
-
         System.out.println("Tebrikler bütün kargolar teslim edildi");
     }
+    public void sistemRaporu(){//nerde ne olmuş bakmam laızm
+        System.out.println("\n\n   Sistem RAPORU");
+        System.out.println("Kayıtlı Müşteriler:");
+        for (Musteri m : this.musteriListesi) {
+            System.out.println("ID: " + m.idGetir() + " | ad: " + m.adGetir());
+        }
+        System.out.println("\nGarajdaki Araçların Kapasiteleri");
+        for (Arac a : this.aracListesi) {
+            System.out.println("Plaka: " + a.plakaGetir() + " | en fazla: " + a.kapasiteGetir() + " kg");
+        }
+    }
 }    
+//neden bilmiyorum vectorleri kullanıcak yer bulamadım
